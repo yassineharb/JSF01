@@ -21,23 +21,5 @@
 			<redirect />
 		</navigation-case>
 	</navigation-rule>
-	<navigation-rule>
-		<display-name>pages/login.xhtml</display-name>
-		<from-view-id>/pages/login.xhtml</from-view-id>
-		<navigation-case>
-			<from-outcome>success</from-outcome>
-			<to-view-id>/pages/admin/home.xhtml</to-view-id>
-			<redirect />
-		</navigation-case>
-	</navigation-rule>
-	<navigation-rule>
-		<display-name>pages/login.xhtml</display-name>
-		<from-view-id>/pages/login.xhtml</from-view-id>
-		<navigation-case>
-			<from-outcome>failure</from-outcome>
-			<to-view-id>/pages/error.xhtml</to-view-id>
-			<redirect />
-		</navigation-case>
-	</navigation-rule>
 
 </faces-config>

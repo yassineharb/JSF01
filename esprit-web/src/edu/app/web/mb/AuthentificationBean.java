@@ -2,10 +2,12 @@ package edu.app.web.mb;
 
 import java.io.Serializable;
 
+import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
-
+import edu.app.business.AuthenticationServiceLocal;
+import edu.app.persistence.User;
 
 @ManagedBean(name = "authBean")
 @SessionScoped
@@ -14,37 +16,43 @@ public class AuthentificationBean implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private String login;
-	private String password;
+	/**
+	 * Model
+	 */
+	private User user = new User();
+	/**
+	 * injection of proxy
+	 */
+	@EJB
+	private AuthenticationServiceLocal authenticationServiceLocal;
 
 	public AuthentificationBean() {
 	}
 
-	public  String dologin()
-	{
-		String navigato=null;
-		if(login.equals("yassine")&&password.equals("admin")){
-			navigato="success";
-		}
-		else{
-			navigato="failure";
-		}
-		return navigato;
-	}
-	public String getLogin() {
-		return login;
+	public String doLogin() {
+		String navigateTo = null;
+        User userFound = authenticationServiceLocal.authenticate(
+                        user.getLogin(), user.getPassword());
+        if (userFound != null) {
+              
+               
+                navigateTo = "/pages/admin/home?faces-redirect=true";
+
+        } else {
+              
+              
+                navigateTo = "/pages/error?faces-redirect=true";
+
+        }
+        return navigateTo;
 	}
 
-	public void setLogin(String login) {
-		this.login = login;
+	public User getUser() {
+		return user;
 	}
 
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 }

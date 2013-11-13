@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf13841801829340" configfile="/esprit-web/WebContent/WEB-INF/faces-config.xml">
-  <nodes xsi:type="pageflow:PFPage" name="welcome.xhtml" x="72" y="216" id="pf13841807946001" outlinks="pf13841807946002" inlinks="pf13841809910394" path="/welcome.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="pages/login.xhtml" x="648" y="348" id="pf13841807946013" outlinks="pf13841809910394 pf13841830273685 pf13841830273686" inlinks="pf13841807946002" path="/pages/login.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="pages/admin/home.xhtml" x="317" y="41" id="pf13841830273687" inlinks="pf13841830273685" path="/pages/admin/home.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="pages/error.xhtml" x="720" y="24" id="pf13841830273688" inlinks="pf13841830273686" path="/pages/error.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="welcome.xhtml" x="72" y="216" id="pf13841807946001" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" outlinks="pf13841807946002" inlinks="pf13841809910394" path="/welcome.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/login.xhtml" x="648" y="348" id="pf13841807946013" referenceLink="//@navigationRule.3/@fromViewId|" outlinks="pf13841809910394" inlinks="pf13841807946002" path="/pages/login.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/admin/home.xhtml" x="317" y="41" id="pf13841830273687" referenceLink="//@navigationRule.2/@navigationCase.0/@toViewId|" path="/pages/admin/home.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/error.xhtml" x="720" y="24" id="pf13841830273688" referenceLink="//@navigationRule.3/@navigationCase.0/@toViewId|" path="/pages/error.xhtml"/>
   <links id="pf13841807946002" target="pf13841807946013" source="pf13841807946001" outcome="nav-To-login" redirect="true"/>
   <links id="pf13841809910394" target="pf13841807946001" source="pf13841807946013" outcome="nav-To-welcome" redirect="true"/>
-  <links id="pf13841830273685" target="pf13841830273687" source="pf13841807946013" outcome="success" redirect="true"/>
-  <links id="pf13841830273686" target="pf13841830273688" source="pf13841807946013" outcome="failure" redirect="true"/>
 </pageflow:Pageflow>
